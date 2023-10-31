@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <form id="surveyForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required><br><br>
+
+        <label for="country">Country:</label>
+        <select id="country" required>
+            <option value="">Select Country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <!-- Add more country options as needed -->
+        </select><br><br>
+
+        <label>Gender:</label>
+        <input type="checkbox" id="male"> Male
+        <input type="checkbox" id="female"> Female<br><br>
+
+        <label for="profession">Profession:</label>
+        <input type="text" id="profession" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required><br><br>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" required><br><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+        <button type="button" onclick="resetForm()">Reset</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            // Get form values
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var dob = document.getElementById("dob").value;
+            var country = document.getElementById("country").value;
+            var gender = document.getElementById("male").checked ? "Male" : "Female";
+            var profession = document.getElementById("profession").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+
+            // Validate form fields (you can add more validations)
+            if (!firstName || !lastName || !dob || !country || !profession || !email || !mobile) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            // Display values in a popup
+            var message = "First Name: " + firstName + "\n" +
+                          "Last Name: " + lastName + "\n" +
+                          "Date of Birth: " + dob + "\n" +
+                          "Country: " + country + "\n" +
+                          "Gender: " + gender + "\n" +
+                          "Profession: " + profession + "\n" +
+                          "Email: " + email + "\n" +
+                          "Mobile Number: " + mobile;
+
+            alert(message);
+
+            // Reset the form
+            document.getElementById("surveyForm").reset();
+        }
+
+        function resetForm() {
+            document.getElementById("surveyForm").reset();
+        }
+    </script>
+</body>
+</html>
